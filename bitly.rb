@@ -1,5 +1,5 @@
 =begin
-tiny bit.ly API library
+Tiny bit.ly API library for Ruby
 
 Author: Akio Kitano
 License: GPL2
@@ -12,7 +12,7 @@ Sample:
   bit = BitLy.new('bitlyapidemo', 'R_0da49e0a9118ff35f52f629d2d71bf07')
   url = bit.ly('http://betaworks.com/')
 
-  # Or if you have ~/.bitly.rb, You can call it without arguments
+  # Or if you have ~/.bitly.rb, you can call it without arguments
   bit = BitLy.new
   url = bit.ly('http://betaworks.com/')
 
@@ -56,6 +56,7 @@ class BitLy
   end
 end
 
+# You can test this code, try "ruby bitly.rb"
 if __FILE__ == $0
   begin
     bit = BitLy.new
