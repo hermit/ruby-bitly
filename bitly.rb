@@ -1,8 +1,10 @@
 =begin
 Tiny bit.ly API library for Ruby
+http://github.com/hermit/ruby-bitly
 
-Author: Akio Kitano
-License: GPL2
+License: The MIT License
+Copyright (c) 2010 Akio Kitano <akio.kitano.00@gmail.com>
+
 
 
 You need bit.ly account and API key.  See http://bit.ly/a/your_api_key
