@@ -49,15 +49,9 @@ end
 if __FILE__ == $0
   begin
     bit = BitLy.new
-    p bit.ly('http://betaworks.com/')
-  rescue BitLy::Error => e
-    p e.result
+  rescue Errno::ENOENT
+    bit = BitLy.new('bitlyapidemo', 'R_0da49e0a9118ff35f52f629d2d71bf07')
   end
 
-  begin
-    bit = BitLy.new('bitlyapidemo', 'R_0da49e0a9118ff35f52f629d2d71bf07')
-    p bit.ly('http://betaworks.com/')
-  rescue BitLy::Error => e
-    p e.result
-  end
+  p bit.ly(ARGV[0])
 end
