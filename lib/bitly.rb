@@ -11,7 +11,7 @@ require 'cgi'
 
 class BitLy
 	# login is your bit.ly username; api_key is your bit.ly API key. See
-	# https://bit.ly/a/your_api_key for more details. If ~/.bitly.rb exists, it
+	# https://bit.ly/a/your_api_key for more details. If ~/.bitly.json exists, it
 	# should be a JSON dictionary with 'login' and 'api_key' keys; in this case,
 	# arguments need not be given.
   def initialize(login = nil, api_key = nil)
