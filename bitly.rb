@@ -39,11 +39,14 @@ class BitLy
       @login = o[:login]
       @api_key = o[:api_key]
     end
+
+    @con = Net::HTTP.new('api-ssl.bitly.com', 443)
+    @con.use_ssl = true
   end
 
   def ly(url)
-    r = JSON.parse(Net::HTTP.get('api.bitly.com',
-       "/v3/shorten?login=#@login&apiKey=#@api_key&longUrl=#{CGI.escape url}"))
+    resp = @con.get("/v3/shorten?login=#@login&apiKey=#@api_key&longUrl=#{CGI.escape url}")
+    r = JSON.parse(resp.body)
     unless r['status_code'] == 200
       raise BitLy::Error, r
     end
