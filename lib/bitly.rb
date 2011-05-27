@@ -1,29 +1,8 @@
-=begin
-Tiny bit.ly API library for Ruby
-http://github.com/hermit/ruby-bitly
-
-License: The MIT License
-Copyright (c) 2010 Akio Kitano <akio.kitano.00@gmail.com>
-
-
-
-You need bit.ly account and API key.  See http://bit.ly/a/your_api_key
-
-Sample:
-  # Write your ID and API key as arguments
-  bit = BitLy.new('bitlyapidemo', 'R_0da49e0a9118ff35f52f629d2d71bf07')
-  url = bit.ly('http://betaworks.com/')
-
-  # Or if you have ~/.bitly.rb, you can call it without arguments
-  bit = BitLy.new
-  url = bit.ly('http://betaworks.com/')
-
-Example of ~/.bitly.rb:
-  {
-    :login   => 'bitlyapidemo',
-    :api_key => 'R_0da49e0a9118ff35f52f629d2d71bf07'
-  }
-=end
+#!/usr/bin/env ruby
+# Tiny bit.ly API library for Ruby
+# https://github.com/hermit/ruby-bitly
+# License: The MIT License
+# Copyright (c) 2010 Akio Kitano <akio.kitano.00@gmail.com>
 
 require 'rubygems'
 require 'json'
@@ -31,6 +10,10 @@ require 'net/http'
 require 'cgi'
 
 class BitLy
+	# login is your bit.ly username; api_key is your bit.ly API key. See
+	# https://bit.ly/a/your_api_key for more details. If ~/.bitly.rb exists, it
+	# should be a Ruby Hash with :login and :api_key keys, in which case you need
+	# not specify arguments here.
   def initialize(login = nil, api_key = nil)
     @login = login
     @api_key = api_key
@@ -44,6 +27,7 @@ class BitLy
     @con.use_ssl = true
   end
 
+	# Shorten a URL.
   def ly(url)
     resp = @con.get("/v3/shorten?login=#@login&apiKey=#@api_key&longUrl=#{CGI.escape url}")
     r = JSON.parse(resp.body)
