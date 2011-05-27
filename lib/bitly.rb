@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
-# Tiny bit.ly API library for Ruby
+# A Tiny bit.ly API Library for Ruby
 # https://github.com/hermit/ruby-bitly
-# License: The MIT License
 # Copyright (c) 2010 Akio Kitano <akio.kitano.00@gmail.com>
 
 require 'rubygems'

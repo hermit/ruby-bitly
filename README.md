@@ -1,8 +1,7 @@
-Tiny bit.ly API library for Ruby
+Tiny bit.ly API Library for Ruby
 ================================
 https://github.com/hermit/ruby-bitly
 
-License: The MIT License  
 Copyright (c) 2010 Akio Kitano <akio.kitano.00@gmail.com>  
 Copyright (c) 2011 katmagic <the.magical.kat@gmail.com>
 
