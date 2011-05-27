@@ -12,15 +12,15 @@ require 'cgi'
 class BitLy
 	# login is your bit.ly username; api_key is your bit.ly API key. See
 	# https://bit.ly/a/your_api_key for more details. If ~/.bitly.rb exists, it
-	# should be a Ruby Hash with :login and :api_key keys, in which case you need
-	# not specify arguments here.
+	# should be a JSON dictionary with 'login' and 'api_key' keys; in this case,
+	# arguments need not be given.
   def initialize(login = nil, api_key = nil)
     @login = login
     @api_key = api_key
     unless @login or @api_key
-      o = eval(File.read("#{ENV['HOME']}/.bitly.rb"))
-      @login = o[:login]
-      @api_key = o[:api_key]
+      o = JSON.parse( File.read(File.join(ENV['HOME'], '.bitly.rb')) )
+      @login = o['login']
+      @api_key = o['api_key']
     end
 
     @con = Net::HTTP.new('api-ssl.bitly.com', 443)
