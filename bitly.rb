@@ -50,7 +50,7 @@ class BitLy
     unless r['status_code'] == 200
       raise BitLy::Error, r
     end
-    r['data']['url']
+    r['data']['url'].sub('http://', 'https://')
   end
 
   class Error < RuntimeError
